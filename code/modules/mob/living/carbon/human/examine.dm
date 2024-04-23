@@ -565,7 +565,7 @@
 				if(H.skills.getRating(SKILL_POLICE) >= SKILL_POLICE_MP)
 					return istype(H.glasses, /obj/item/clothing/glasses/hud/security) || istype(H.glasses, /obj/item/clothing/glasses/sunglasses/sechud)
 			if("medical")
-				return istype(H.glasses, /obj/item/clothing/glasses/hud/health)
+				return istype(H.glasses, hud_type = DATA_HUD_MEDICAL_ADVANCED || hud_type = DATA_HUD_MEDICAL_ADVANCED_SYNTH)
 			if("squadleader")
 				return H.mind && H.assigned_squad && H.assigned_squad.squad_leader == H && istype(H.wear_ear, /obj/item/radio/headset/mainship/marine)
 			else
