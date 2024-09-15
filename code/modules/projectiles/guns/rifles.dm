@@ -1991,6 +1991,53 @@
 	)
 
 //-------------------------------------------------------
+// Bolter Rifle
+/obj/item/weapon/gun/rifle/bolt_rifle
+	name = "\improper Mark II Cawl Pattern Bolt Rifle"
+	desc = "A magazine fed, full-automatic oversized rifle designed to shoot an armor piercing explosive round, its size make it unwieldy to unworthy user."
+	icon = 'icons/obj/items/guns/special64.dmi' //placeholder
+	icon_state = "tx54" ///placeholder
+	worn_icon_state = "tx54" //placeholder
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/guns/special_left_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/special_right_1.dmi',
+	) //placeholder
+	max_shells = 25 //codex
+	max_chamber_items = 1
+	fire_delay = 0.4 SECONDS
+	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/shotgun_empty.ogg'
+	caliber = CALIBER_75 //codex
+	attachable_allowed = list(
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES|GUN_CAN_POINTBLANK
+	default_ammo_type = /datum/ammo/tx54/bolter
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/tx54/bolter
+	)
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO,GUN_FIREMODE_AUTOMATIC)
+	gun_skill_category = SKILL_HEAVY_WEAPONS
+	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 17,"rail_x" = 12, "rail_y" = 20, "under_x" = 28, "under_y" = 13, "stock_x" = -1, "stock_y" = 17)
+	force = 35
+	aim_slowdown = 1.2
+	wield_delay = 1.2 SECONDS
+	recoil = 2
+	burst_amount = 1
+	accuracy_mult = 0.95
+	scatter = 6
+	aim_fire_delay = 0.2 SECONDS
+	aim_speed_modifier = 2
+
+//-------------------------------------------------------
 //A true classic, the Garand. Ping.
 
 /obj/item/weapon/gun/rifle/garand

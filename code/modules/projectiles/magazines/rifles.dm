@@ -541,6 +541,16 @@
 	icon_state_mini = "mag_sniper_yellow"
 	greyscale_colors = COLOR_AMMO_RAZORBURN
 
+/obj/item/ammo_magazine/rifle/tx54/bolter
+	name = "\improper .75 armor piercing explosive rounds magazine"
+	desc = "A .75 magazine loaded with armor piercing explosive rounds. For use with the Bolter Rifle."
+	caliber = CALIBER_75
+	default_ammo = /datum/ammo/tx54/bolter
+	icon_state = "tx54_airburst"
+	icon_state_mini = "mag_sniper_red"
+	greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
+	max_rounds = 25
+
 //-------------------------------------------------------
 //Garand
 /obj/item/ammo_magazine/rifle/garand

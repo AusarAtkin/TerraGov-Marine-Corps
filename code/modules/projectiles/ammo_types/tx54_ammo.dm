@@ -125,6 +125,45 @@
 /datum/ammo/tx54/he/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
+/datum/ammo/tx54/bolter
+	name = ".75 armor piercing explosive round"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
+	hud_state = "grenade_he"
+	bonus_projectiles_type = null
+	armor_type = BULLET
+	damage_falloff = 0.1
+	shell_speed = 2
+	accurate_range = 8
+	max_range = 15
+	damage = 50
+	penetration = 15
+	sundering = 2.5
+	shrapnel_chance = 0
+	handful_greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
+	projectile_greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
+
+
+/datum/ammo/tx54/bolter/drop_nade(turf/T)
+	explosion(T, 0, 0, 1, 2, 0)
+
+/datum/ammo/tx54/bolter/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/det_turf = get_turf(target_mob)
+	addtimer(CALLBACK(GLOBAL_PROC , GLOBAL_PROC_REF(explosion), det_turf, 0, 0, 0, 1, 0, silent = TRUE, invisible = TRUE), 0.5 SECONDS)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 10)
+
+/datum/ammo/tx54/bolter/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	var/turf/det_turf = target_obj.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_obj, proj) : target_obj.loc
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 10)
+
+
+/datum/ammo/tx54/bolter/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 10)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+
+/datum/ammo/tx54/bolter/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
+
 //The secondary projectiles
 /datum/ammo/bullet/tx54_spread
 	name = "Shrapnel"
